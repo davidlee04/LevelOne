@@ -42,6 +42,8 @@ public class SimpleCalculator implements ActionListener {
 		calculator.pack();
 		addition.addActionListener(this);
 		subtraction.addActionListener(this);
+		multiplication.addActionListener(this);
+		division.addActionListener(this);
 
 	}
 
@@ -56,6 +58,30 @@ public class SimpleCalculator implements ActionListener {
 			int additionanswer = firstnum+secondnum;
 			answer.setText(additionanswer+"");
 			
+		}
+		if(e.getSource().equals(subtraction)){
+			String firstnumber = first.getText();
+			String secondnumber = second.getText();
+			int firstnum = Integer.parseInt(firstnumber);
+			int secondnum = Integer.parseInt(secondnumber);
+			int subtractionanswer = firstnum - secondnum;
+			answer.setText(subtractionanswer+"");
+		}
+		if(e.getSource().equals(multiplication)){
+			String firstnumber = first.getText();
+			String secondnumber = second.getText();
+			int firstnum = Integer.parseInt(firstnumber);
+			int secondnum = Integer.parseInt(secondnumber);
+			int multiplicationanswer = firstnum * secondnum;
+			answer.setText(multiplicationanswer+"");
+		}
+		if(e.getSource().equals(division)){
+			String firstnumber = first.getText();
+			String secondnumber = second.getText();
+			int firstnum = Integer.parseInt(firstnumber);
+			int secondnum = Integer.parseInt(secondnumber);
+			int divisionanswer = firstnum / secondnum;
+			answer.setText(divisionanswer+"");
 		}
 
 	}
