@@ -1,4 +1,6 @@
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,16 +19,16 @@ public class SimpleCalculator implements ActionListener {
 
 	JButton addition = new JButton("Add");
 	JButton subtraction = new JButton("Subtract");
-	JButton multiplication = new JButton("Multiplication");
-	JButton division = new JButton("Division");
+	JButton multiplication = new JButton("Multiply");
+	JButton division = new JButton("Divide");
 	JTextField first = new JTextField();
 	JTextField second = new JTextField();
 	JLabel answer = new JLabel();
 
 	public void addition() {
-		Dimension text = new Dimension(70, 30);
+		Dimension text = new Dimension(150, 30);
 		JFrame calculator = new JFrame();
-		JPanel panel = new JPanel();
+		JPanel panel = new JPanel(new FlowLayout());
 
 		calculator.add(panel);
 		panel.add(first);
@@ -39,7 +41,7 @@ public class SimpleCalculator implements ActionListener {
 		first.setPreferredSize(text);
 		second.setPreferredSize(text);
 		calculator.setVisible(true);
-		calculator.pack();
+		calculator.setSize(375, 500);
 		addition.addActionListener(this);
 		subtraction.addActionListener(this);
 		multiplication.addActionListener(this);
@@ -55,33 +57,34 @@ public class SimpleCalculator implements ActionListener {
 			String secondnumber = second.getText();
 			int firstnum = Integer.parseInt(firstnumber);
 			int secondnum = Integer.parseInt(secondnumber);
-			int additionanswer = firstnum+secondnum;
-			answer.setText(additionanswer+"");
-			
+			int additionanswer = firstnum + secondnum;
+			answer.setText(additionanswer + "");
+			answer.setFont(new Font("Arial", Font.BOLD, 50));
+
 		}
-		if(e.getSource().equals(subtraction)){
+		if (e.getSource().equals(subtraction)) {
 			String firstnumber = first.getText();
 			String secondnumber = second.getText();
 			int firstnum = Integer.parseInt(firstnumber);
 			int secondnum = Integer.parseInt(secondnumber);
 			int subtractionanswer = firstnum - secondnum;
-			answer.setText(subtractionanswer+"");
+			answer.setText(subtractionanswer + "");
 		}
-		if(e.getSource().equals(multiplication)){
+		if (e.getSource().equals(multiplication)) {
 			String firstnumber = first.getText();
 			String secondnumber = second.getText();
 			int firstnum = Integer.parseInt(firstnumber);
 			int secondnum = Integer.parseInt(secondnumber);
 			int multiplicationanswer = firstnum * secondnum;
-			answer.setText(multiplicationanswer+"");
+			answer.setText(multiplicationanswer + "");
 		}
-		if(e.getSource().equals(division)){
+		if (e.getSource().equals(division)) {
 			String firstnumber = first.getText();
 			String secondnumber = second.getText();
 			int firstnum = Integer.parseInt(firstnumber);
 			int secondnum = Integer.parseInt(secondnumber);
 			int divisionanswer = firstnum / secondnum;
-			answer.setText(divisionanswer+"");
+			answer.setText(divisionanswer + "");
 		}
 
 	}
