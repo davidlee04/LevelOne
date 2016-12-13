@@ -55,7 +55,7 @@ public class Beetlejuice implements ActionListener {
 	public static void playSound(int whichSound) {
 		File soundFile = null;
 		if (whichSound == CREEPY)
-			soundFile = new File("/Users/League/Google Drive/league-sounds/creepy-noise.wav");
+			soundFile = new File("C:\\Users\\jebonglee\\Desktop\\videoplayback.mp4");
 		else if (whichSound == SCREAM)
 			soundFile = new File("/Users/League/Google Drive/league-sounds/scream.wav");
 		try {
