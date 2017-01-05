@@ -7,6 +7,7 @@ public class HouseCreator {
 	Robot jim;
 	boolean alive;
 	int height;
+	Color color;
 	int range;
 
 	public HouseCreator(boolean alive, int range) {
@@ -25,32 +26,57 @@ public class HouseCreator {
 	
 	void drawHouseAndGrass(){
 		jim.penDown();
-		jim.setRandomPenColor();
+		jim.setPenColor(color);
 		jim.setSpeed(10);
 		jim.move(height);
-		jim.turn(90);
-		jim.move(75);
-		jim.turn(90);
+		drawFlatRoof();
 		jim.move(height);
 		jim.turn(270);
-		jim.setPenColor(Color.green);
+		jim.setPenColor(Color.GREEN);
 		jim.move(80);
 		jim.turn(270);
 
 	}
 	
-	void drawHouseAndGrass(String strHeight){
+	void drawHouseAndGrass(String strHeight, Color houseColor){
+		if(houseColor.equals(Color.BLUE)){
+			color = Color.BLUE;
+		}
+		if(houseColor.equals(Color.ORANGE)){
+			color = Color.ORANGE;
+		}
+		if(houseColor.equals(Color.MAGENTA)){
+			color = Color.MAGENTA;
+		}
 
 		if(strHeight.equals("small")){
 			height = 60;
+		}else if(strHeight.equals("medium")){
+			height = 120;
+		}else if(strHeight.equals("large")){
+			height = 250;
 		}
 		drawHouseAndGrass();
 
 	}
 	
-	void setRandomHeight(){
+	void drawPointyRoof(){
+		jim.turn(45);
+		jim.move(20);
+		jim.turn(90);
+		jim.move(20);
+		jim.turn(45);
+	}
+	
+	void drawFlatRoof(){
+		jim.turn(90);
+		jim.move(75);
+		jim.turn(90);
+	}
+	
+	/*void setRandomHeight(){
 		height = new Random().nextInt(range);
 		
-	}
+	}*/
 
 }
