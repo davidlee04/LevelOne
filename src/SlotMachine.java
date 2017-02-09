@@ -60,37 +60,77 @@ public class SlotMachine implements ActionListener {
 		return randomNums;
 	}
 
-	public int checkNums() {
-		if (randomNums[1] == randomNums[0]) {
-			return 2;
-		} else if (randomNums[2] == randomNums[1]) {
-			return 2;
-		} else if (randomNums[2] == randomNums[0]) {
-			return 2;
-		} else if (randomNums[0] == randomNums[1] && randomNums[1] == randomNums[2] && randomNums[0] == randomNums[2]) {
-			return 3;
-		} else {
-			return 1;
-		}
-	}
-
-	public int addCash() {
+	/*public int addCash() {
 		if (checkNums() == 2) {
 			int reward = (int) (betAmt * 0.5);
 			cash = cash + reward;
 			JOptionPane.showMessageDialog(null, "Your balance has been increased by 0.5 of your bet!");
+			currentCash.setText("$" + cash);
 			return cash;
-		}else if(checkNums() == 3){
+		} else if (checkNums() == 3) {
 			int reward = (int) (betAmt * 2);
 			cash = cash + reward;
+			currentCash.setText("$" + cash);
 			JOptionPane.showMessageDialog(null, "Your balance has been increased double your bet!");
 			return cash;
-		}else if(checkNums() == 1){
+		} else if (checkNums() == 1) {
 			JOptionPane.showMessageDialog(null, "Your balance has been increased by nothing :(");
 			return cash;
-		}else{
+		} else {
 			return cash;
 		}
+	}          failure... addCash code added to checkNums method                   */
+
+	public int checkNums() {
+		if (randomNums[1] == randomNums[0] && randomNums[2] != randomNums[1] && randomNums[2] != randomNums[0]) {
+			int reward = (int) (betAmt * 0.5);
+			cash = cash + reward;
+			JOptionPane.showMessageDialog(null, "Your balance has been increased by 0.5 of your bet!");
+			currentCash.setText("$" + cash);
+			firstRoll.setText("");
+			secondRoll.setText("");
+			thirdRoll.setText("");
+			generateRandomNums();
+			return cash;
+		} else if (randomNums[2] == randomNums[1] && randomNums[2] != randomNums[0] && randomNums[1] != randomNums[0]) {
+			int reward = (int) (betAmt * 0.5);
+			cash = cash + reward;
+			JOptionPane.showMessageDialog(null, "Your balance has been increased by 0.5 of your bet!");
+			currentCash.setText("$" + cash);
+			firstRoll.setText("");
+			secondRoll.setText("");
+			thirdRoll.setText("");
+			generateRandomNums();
+			return cash;
+		} else if (randomNums[2] == randomNums[0] && randomNums[2] != randomNums[1] && randomNums[1] != randomNums[0]) {
+			int reward = (int) (betAmt * 0.5);
+			cash = cash + reward;
+			JOptionPane.showMessageDialog(null, "Your balance has been increased by 0.5 of your bet!");
+			currentCash.setText("$" + cash);
+			firstRoll.setText("");
+			secondRoll.setText("");
+			thirdRoll.setText("");
+			generateRandomNums();
+			return cash;
+		} else if (randomNums[0] == randomNums[1] && randomNums[1] == randomNums[2] && randomNums[0] == randomNums[2]) {
+			int reward = (int) (betAmt * 2);
+			cash = cash + reward;
+			currentCash.setText("$" + cash);
+			JOptionPane.showMessageDialog(null, "Your balance has been increased double your bet!");
+			firstRoll.setText("");
+			secondRoll.setText("");
+			thirdRoll.setText("");
+			generateRandomNums();
+			return cash;
+		} else {
+			JOptionPane.showMessageDialog(null, "Your balance has been increased by nothing :(");
+			firstRoll.setText("");
+			secondRoll.setText("");
+			thirdRoll.setText("");
+			generateRandomNums();
+			return cash;
+		}
+		
 	}
 
 	@Override
@@ -101,6 +141,7 @@ public class SlotMachine implements ActionListener {
 			secondRoll.setText(randomNums[1] + "");
 			thirdRoll.setText(randomNums[2] + "");
 		}
+		checkNums();
 	}
 
 }
