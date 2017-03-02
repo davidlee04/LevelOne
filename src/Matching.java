@@ -33,7 +33,6 @@ public class Matching implements ActionListener {
 	public static void main(String[] args) {
 		Matching go = new Matching();
 		go.setUI();
-		// go.setIcons();
 
 	}
 

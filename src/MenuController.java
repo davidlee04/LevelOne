@@ -29,11 +29,7 @@ public class MenuController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource().equals(menu.order)){
-			if(menu.orderName.getText().equalsIgnoreCase("burger")){
-				JOptionPane.showMessageDialog(null, "Here is your burger!");
-			}
-		}
+		md.checkOrder(menu.getOrder());
 	}
 	
 

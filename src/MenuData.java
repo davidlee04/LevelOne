@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 public class MenuData {
 	String menuItem1 = "Burger 1000¢";
@@ -19,6 +20,20 @@ public class MenuData {
 
 	String getmenuItem4() {
 		return menuItem4;
+	}
+	
+	void checkOrder(String myOrder){
+		if(myOrder.equalsIgnoreCase("Burger")){
+			JOptionPane.showMessageDialog(null, "Here is your burger!");
+		}else if(myOrder.equalsIgnoreCase("Hot Dog")){
+			JOptionPane.showMessageDialog(null, "Here is your hot dog!");
+		}else if(myOrder.equalsIgnoreCase("Pizza")){
+			JOptionPane.showMessageDialog(null, "Here is your pizza!");
+		}else if(myOrder.equalsIgnoreCase("Steak")){
+			JOptionPane.showMessageDialog(null, "Here is your steak!");
+		}else{
+			JOptionPane.showMessageDialog(null, "Sorry we don't have that here.");
+		}
 	}
 
 }

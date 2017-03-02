@@ -51,8 +51,13 @@ public class Menu {
 	public void menuPack() {
 		frame.pack();
 	}
-	
-	public void addActionListener(ActionListener controller){
+
+	public void addActionListener(ActionListener controller) {
 		order.addActionListener(controller);
 	}
+	
+	public String getOrder(){
+		return orderName.getText();
+	}
+
 }
