@@ -79,7 +79,22 @@ public class CalculatorView {
 
 	public void addActionListener(CalculatorControl calculatorControl) {
 		// TODO Auto-generated method stub
-		
+		addition.addActionListener(calculatorControl);
+		subtraction.addActionListener(calculatorControl);
+		multiplication.addActionListener(calculatorControl);
+		division.addActionListener(calculatorControl);
+		zero.addActionListener(calculatorControl);
+		one.addActionListener(calculatorControl);
+		two.addActionListener(calculatorControl);
+		three.addActionListener(calculatorControl);
+		four.addActionListener(calculatorControl);
+		five.addActionListener(calculatorControl);
+		six.addActionListener(calculatorControl);
+		seven.addActionListener(calculatorControl);
+		eight.addActionListener(calculatorControl);
+		nine.addActionListener(calculatorControl);
+		clear.addActionListener(calculatorControl);
+		equals.addActionListener(calculatorControl);
 	}
 	
 
