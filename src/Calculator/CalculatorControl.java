@@ -3,7 +3,7 @@ package Calculator;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CalculatorControl implements ActionListener{
+public class CalculatorControl implements ActionListener {
 	CalculatorView view;
 	CalculatorModel model;
 
@@ -12,68 +12,100 @@ public class CalculatorControl implements ActionListener{
 		this.view = view;
 		this.model = model;
 		view.addActionListener(this);
-	
+
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource() == view.zero){
+		if (e.getSource() == view.zero) {
 			model.addDigit(0);
 			view.firstDisplay.setText(model.firstNumber);
 			view.thirdDisplay.setText(model.secondNumber);
 		}
-		if(e.getSource() == view.one){
+		if (e.getSource() == view.one) {
 			model.addDigit(1);
 			view.firstDisplay.setText(model.firstNumber);
 			view.thirdDisplay.setText(model.secondNumber);
 		}
-		if(e.getSource() == view.two){
+		if (e.getSource() == view.two) {
 			model.addDigit(2);
 			view.firstDisplay.setText(model.firstNumber);
 			view.thirdDisplay.setText(model.secondNumber);
 		}
-		if(e.getSource() == view.three){
+		if (e.getSource() == view.three) {
 			model.addDigit(3);
 			view.firstDisplay.setText(model.firstNumber);
 			view.thirdDisplay.setText(model.secondNumber);
 		}
-		if(e.getSource() == view.four){
+		if (e.getSource() == view.four) {
 			model.addDigit(4);
 			view.firstDisplay.setText(model.firstNumber);
 			view.thirdDisplay.setText(model.secondNumber);
 		}
-		if(e.getSource() == view.five){
+		if (e.getSource() == view.five) {
 			model.addDigit(5);
 			view.firstDisplay.setText(model.firstNumber);
 			view.thirdDisplay.setText(model.secondNumber);
 		}
-		if(e.getSource() == view.six){
+		if (e.getSource() == view.six) {
 			model.addDigit(6);
 			view.firstDisplay.setText(model.firstNumber);
 			view.thirdDisplay.setText(model.secondNumber);
 		}
-		if(e.getSource() == view.seven){
+		if (e.getSource() == view.seven) {
 			model.addDigit(7);
 			view.firstDisplay.setText(model.firstNumber);
 			view.thirdDisplay.setText(model.secondNumber);
 		}
-		if(e.getSource() == view.eight){
+		if (e.getSource() == view.eight) {
 			model.addDigit(8);
 			view.firstDisplay.setText(model.firstNumber);
 			view.thirdDisplay.setText(model.secondNumber);
 		}
-		if(e.getSource() == view.nine){
+		if (e.getSource() == view.nine) {
 			model.addDigit(9);
 			view.firstDisplay.setText(model.firstNumber);
 			view.thirdDisplay.setText(model.secondNumber);
 		}
-		if(e.getSource() == view.addition){
-			model.addOperator("+");
+		if (e.getSource() == view.addition) {
+			if (view.secondDisplay.getText() == "") {
+				model.addOperator("+");
+			}
 			model.operatorPressed = true;
 			view.secondDisplay.setText(model.operator);
 		}
-	  
+		if (e.getSource() == view.division) {
+			if (view.secondDisplay.getText() == "") {
+				model.addOperator("÷");
+			}
+			model.operatorPressed = true;
+			view.secondDisplay.setText(model.operator);
+		}
+		if (e.getSource() == view.subtraction) {
+			if (view.secondDisplay.getText() == "") {
+				model.addOperator("-");
+			}
+			model.operatorPressed = true;
+			view.secondDisplay.setText(model.operator);
+		}
+		if (e.getSource() == view.multiplication) {
+			if (view.secondDisplay.getText() == "") {
+				model.addOperator("*");
+			}
+			model.operatorPressed = true;
+			view.secondDisplay.setText(model.operator);
+		}
+		if (e.getSource() == view.equals) {
+			model.parseNums();
+			model.findAnswer(model.firstInt, model.secondInt, model.operator);
+			view.fourthDisplay.setText("= " + model.getAnswer());
+		}
+		if (e.getSource() == view.clear) {
+			model.clearValues();
+			view.clearDisplays();
+		}
+
 	}
 
 }

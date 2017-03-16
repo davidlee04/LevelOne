@@ -1,7 +1,6 @@
 package Calculator;
 
 import java.awt.GridLayout;
-import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,6 +8,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class CalculatorView {
+	CalculatorModel model;
+
+	// Dimension dimension = new Dimension(500, 500);
+
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
 	JLabel firstDisplay = new JLabel();
@@ -31,7 +34,8 @@ public class CalculatorView {
 	JButton nine = new JButton();
 	JButton clear = new JButton();
 	JButton equals = new JButton();
-	public CalculatorView(){
+
+	public CalculatorView() {
 		setUI();
 	}
 
@@ -74,7 +78,8 @@ public class CalculatorView {
 		clear.setText("C");
 		equals.setText("=");
 		frame.setVisible(true);
-		panel.setLayout(new GridLayout(5,4));
+		// frame.setPreferredSize(dimension);
+		panel.setLayout(new GridLayout(5, 4));
 	}
 
 	public void addActionListener(CalculatorControl calculatorControl) {
@@ -96,6 +101,12 @@ public class CalculatorView {
 		clear.addActionListener(calculatorControl);
 		equals.addActionListener(calculatorControl);
 	}
-	
+
+	public void clearDisplays() {
+		firstDisplay.setText("");
+		secondDisplay.setText("");
+		thirdDisplay.setText("");
+		fourthDisplay.setText("");
+	}
 
 }
